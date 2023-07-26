@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+ <head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='11-512.webp') }}" type="image/x-icon">
+        
+		<title> Prijava </title>
+    </head>
+    <body></br>
+	{% with messages = get_flashed_messages() %}
+		<ul>{% if messages %}
+			{% for message in messages %}
+				<li> {{ message }} </li>
+            {% endfor %}
+        {% endif %}
+        </ul>
+	{% endwith %}</br>
+        <div align="center">
+          <div align="center" class="border">
+             <div class="header">
+                <h3 class="word">Prijava</h3>
+             </div></br></br></br>
+            <h4 class="word">
+                <form action="{{ url_for('login') }}" method="post">
+                    <input id="Korisnicko ime" name="Korisnicko ime" type="text" placeholder="Unesite korisnicko ime" class="textbox"/></br></br>
+                    <input id="lozinka" name="lozinka" type="password" placeholder="Unesite lozinku" class="textbox"/></br></br></br>
+                    <input type="submit" class="btn" value="Prijavite se"></br></br>
+                </form>
+            </h4>
+            <p class="bottom">Nemate nalog?  <a class="bottom" href="{{url_for('registration')}}"> Registujte se ovde!</a></p>
+          </div>
+        </div>
+    </body>
+</html>
