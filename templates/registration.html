@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='11-512.webp') }}" type="image/x-icon">
+	
+    <title>Registracija</title>
+  </head>
+  <body>
+{% with messages = get_flashed_messages() %}
+	{% if messages %}
+        <ul class=flashes>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+       	   {% endfor %}
+        </ul>
+    {% endif %}
+{% endwith %}
+
+    </br></br>
+        <div align="center">
+          <div align="center" class="border">
+             <div class="header">
+                <h1 class="word">Registracija</h1>
+             </div></br>
+            <h4 class="word">
+                <form action="{{ url_for('registration') }}" method="post">
+                    <input id="Ime" name="Ime" type="text" placeholder="Unesite svoje ime" class="form-control"/></br></br>
+                    <input id="Prezime" name="Prezime" type="text" placeholder="Unesite svoje prezime" class="form-control"/></br></br>
+                    <input id="Username" name="username" type="text" placeholder="Unesite korisnicko ime" class="form-control"/></br></br>
+                    <input id="password" name="password" type="password" placeholder="Unesite svoju lozinku" class="form-control"/></br></br>
+                    <input id="password" name="passwordConfirm" type="password" placeholder="Ponovo unesite svoju lozinku" class="form-control"/></br></br>
+                    <input id="E mail" name="E mail" type="text" placeholder="Unesite svoj e-mail" class="form-control"/></br></br>
+                    <input type="submit" class="btn" value="Registracija"></br>
+                </form>
+            </h4>
+            <p class="bottom">Već imate nalog?  <a class="bottom" href="{{url_for('login')}}"> Prijavite se ovde.</a></p>
+          </div>
+        </div>
+
+
+  </body>
+</html>
